@@ -1,0 +1,47 @@
+Comandos
+
+pwd. Nos muestra el directorio en el que nos encontramos. Ej. pwd
+
+ls. Enlista los archivos dentro del directorio en el que nos
+encontramos. Ej. ls -l
+
+cd. Cambia el directorio en el que nos encontramos. Ej. cd notas.txt
+
+file. Nos menciona que tipo de archivo es un archivo o
+directorio. Ej. file [path]
+
+man. Abre el manual para algun tipo de comando. Ej. man ls
+
+man -k. Usa una palabra clave para buscar en el manual. Ej. man -k
+algo
+
+/term. Ordena una busqueda de un termino dentro de una pagina del
+manual. Ej. /termino
+
+n. Despues de hacer una busqueda dentro de una pagina del manual,
+selecciona la siguiente opcion. Ej. n
+
+mkdir. Crea un directorio. Ej. mkdir directorio
+
+rmdir. Borra un directorio. Ej. rmdir directorio
+
+touch. Crea un archivo en blanco. Ej. touch archivo
+
+cp. Copia un archivo o directorio. Ej. cp fuente destino
+
+mv. Mueve un archivo o directorio. Ej. mv fuente destino
+
+rm. Borra un archivo. Ej. rm notas.txt
+
+vi. Edita un archivo. Ej. vi notas.txt
+
+cat. Muestra el contenido de un archivo. Ej. cat notas.txt
+
+less. Muestra el contenido de un archivo de una manera mas
+amigable. Ej. less notas.txt
+
+chmod. Cambia los permisos de un archivo o directorio. Ej. chmod
+permisos notas.txt
+
+ls -ld. Muestra los permisos para un directorio en especifico. Ej. ls
+-ld directorio
