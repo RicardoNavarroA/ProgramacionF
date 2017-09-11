@@ -1,0 +1,32 @@
+program altura_max
+  implicit none
+
+  ! definimos constantes
+  real, parameter :: g = 9.8
+  real, parameter :: pi = 3.1415927
+
+  ! definimos variables
+  real :: a, t, u, x, y, h
+  real :: theta, v, vx, vy
+
+  ! Leer valores para el ángulo a, el tiempo t, y la velocidad inicial u desde la terminal
+  write(*,*) 'Dame el ángulo, y la velocidad inicial'
+  read(*,*) a, u
+
+  ! convirtiendo angulo a radianes
+  a = a * pi / 180.0
+
+  ! ecuacion de la velocidad final para la altura maxima
+  v= u * sin(a) - g * t
+
+  ! ecuacion del tiempo para la altura maxima
+  t = u * sin(a) / g
+
+  ! ecuaciones de la altura maxima
+  h = u * t * sin(a) - 0.5 * g * t * t
+  h = u * u * (sin(a)) * (sin(a)) / 2.0 * g
+
+  ! escribiendo el resultado en la pantalla
+  write(*,*) 't; ',t,' h: ',h
+
+end program altura_max  

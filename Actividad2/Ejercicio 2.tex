@@ -1,0 +1,172 @@
+\documentclass{article}
+
+% set font encoding for PDFLaTeX or XeLaTeX
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\fi
+
+% used in maketitle
+\title{Actividad 2}
+\author{Ricardo Navarro Alvarado \\
+ Departamento de Fisica \\
+ Universidad de Sonora}
+\date{11 de Septiembre del 2017}
+
+% Enable SageTeX to run SageMath code right inside this LaTeX file.
+% documentation: http://mirrors.ctan.org/macros/latex/contrib/sagetex/sagetexpackage.pdf
+% \usepackage{sagetex}
+
+\begin{document}
+\maketitle
+%comentarios
+
+\section{Introduccion}
+Tiro parabolico
+\subsection{Archivo projectile}
+Utilize esté archívo para obtener datos generales sobre el tiro parabólico
+\begin{verbatim}
+program projectile
+  implicit none
+
+  ! definimos constantes
+  real, parameter :: g = 9.8
+  real, parameter :: pi = 3.1415927
+
+  ! definimos las variables
+  real :: a, t, u, x, y
+  real :: theta, v, vx, vy
+
+  ! Leer valores para el ángulo a, el tiempo t, y la velocidad inicial u desde la terminal
+  write(*,*) 'Dame el ángulo, el tiempo y la rapidez inicial'
+  read(*,*) a, t, u
+
+  ! convirtiendo ángulo a radianes
+  a = a * pi / 180.0
+  
+  ! las ecuaciones de la posición en x y y
+  x = u * cos(a) * t
+  y = u * sin(a) * t - 0.5 * g * t * t
+
+  ! La velocidad al tiempo t
+  vx = u * cos(a)
+  vy = u * sin(a) - g * t
+  v = sqrt(vx * vx + vy * vy)
+  theta = atan(vy / vx) * 180.0 / pi
+ 
+ ! escribiendo el resultado en la pantalla
+  write(*,*) 'x: ',x,'  y: ',y
+  write(*,*) 'v: ',v,'  theta: ',theta
+
+end program projectile
+\end{verbatim}
+\subsubsection{Ejemplo del programa}
+Para $a$=$45$, $t$=$9$, y $u$=$5$ nos dio los datos:
+$x$ = $31.819805$, $y$ = $-365.080231$, $v$ = $84.7382660$, y $\Theta$ = $-87.6087494$
+\subsection{Archivo Tiempo de vuelo}
+Este archivo se utilizo para obtener el tiempo de vuelo de la masa
+\begin{verbatim}
+program tiempo_vuelo
+  implicit none
+
+  ! definimos constantes
+  real, parameter :: g = 9.8
+  real, parameter :: pi = 3.1415927
+
+  ! definimos las variables
+  real :: a, t, u, x, y
+  real :: theta, v, vx, vy
+
+  ! Leer valores para el ángulo a, y la velocidad inicial u desde la terminal
+  write(*,*) 'Dame el ángulo y la rapidez inicial'
+  read(*,*) a, u
+
+  !convirtiendo angulo a radianes
+  a = a * pi / 180.0
+
+  ! La ecuacion del tiempo de vuelo
+  t = 2.0 * u * sin(a) / g
+
+  ! escribiendo el resultado en la pantalla
+  write(*,*) 't: ',t
+
+end program tiempo_vuelo
+\end{verbatim}
+\subsubsection{Ejemplo del programa}
+Para $a$=$45$ y $u$=$9$ nos dio un tiempo de vuelo $t$=$1.29876745$
+\subsection{Archivo Altura maxima}
+Utilize este archivo para conseguir la distancia vertical maxima
+\begin{verbatim}
+program altura_max
+  implicit none
+
+  ! definimos constantes
+  real, parameter :: g = 9.8
+  real, parameter :: pi = 3.1415927
+
+  ! definimos variables
+  real :: a, t, u, x, y, h
+  real :: theta, v, vx, vy
+
+  ! Leer valores para el ángulo a, el tiempo t, y la velocidad inicial u desde la terminal
+  write(*,*) 'Dame el ángulo, y la velocidad inicial'
+  read(*,*) a, u
+
+  ! convirtiendo angulo a radianes
+  a = a * pi / 180.0
+
+  ! ecuacion de la velocidad final para la altura maxima
+  v= u * sin(a) - g * t
+
+  ! ecuacion del tiempo para la altura maxima
+  t = u * sin(a) / g
+
+  ! ecuaciones de la altura maxima
+  h = u * t * sin(a) - 0.5 * g * t * t
+  h = u * u * (sin(a)) * (sin(a)) / 2.0 * g
+
+  ! escribiendo el resultado en la pantalla
+  write(*,*) 't: ',t,' h: ',h
+
+end program altura_max
+\end{verbatim}
+\subsubsection{Ejemplo del programa}
+Para $a$=$45$, y $u$=$9$ nos dio un tiempo $t$=$0.649383724 $ y una altura $h$=$198.449997$
+\subsection{Archivo Distancia maxima}
+Este programa tiene el proposito de proporcionar la distancia maxima en $x$
+\begin{verbatim}
+program distancia_max
+  implicit none
+
+  ! definimos constantes
+  real, parameter :: g = 9.8
+  real, parameter :: pi = 3.1415927
+
+  ! definimos las variables
+  real :: a, t, u, x, y, d, h
+  real :: theta, v, vx, vy
+
+  ! Leer valores para el ángulo a, y la velocidad inicial u desde la terminal
+  write(*,*) 'Dame el ángulo y la velocidad inicial'
+  read(*,*) a, u
+
+  ! convirtiendo angulo a radianes
+  a = a * pi / 180.0
+
+  ! ecuacion de la distancia horizontal
+  d = u * u * sin(2 * a) / g
+
+  ! escribiendo el resultado en la pantalla
+  write(*,*) 'd: ',d
+
+end program distancia_max
+\end{verbatim}
+\subsubsection{Ejemplo del programa}
+Para $a$=$45$, y $u$=$9$ nos da una distancia $d$=$8.26530552$
+\subsection{Conclusión}
+Por conclusion, estos programas pueden ser de ayuda al momento de trabajar con el tiro parabolico y de ejemplo para otro tipo de programas con un proposito similar.
+\end{document}
